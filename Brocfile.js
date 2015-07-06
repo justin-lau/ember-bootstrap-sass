@@ -14,7 +14,8 @@ var EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 var app = new EmberAddon({
 
   sassOptions: {
-    extension: 'scss'
+    extension: 'scss',
+    precision: 10,
   },
 
   bootstrapSass: {

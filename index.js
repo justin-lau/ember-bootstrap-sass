@@ -22,7 +22,11 @@ module.exports = {
           if (!addonConfig.excludeStyle && !(addonConfig.useCDNForStyle && process.env.EMBER_ENV === 'production')) {
             // tell `ember-cli-sass` to compile `addon/styles/bootstrap.scss`
             options.outputPaths.bootstrap = 'bootstrap.css';
-            options.precision = 8;
+
+            // minimum required by bootstrap
+            if (!options.precision || options.precision < 8) {
+              options.precision = 8;
+            }
           }
 
           return tree;
